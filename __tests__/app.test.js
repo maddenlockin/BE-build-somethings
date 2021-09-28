@@ -7,7 +7,7 @@ describe('REST room app', () => {
     beforeEach(() => {
         return setup(pool);
     });
-    console.log('hey test');
+    
     it('gets all addresses from the api', () => {
         return request(app)
             .get('api/v1/restrooms/')
@@ -20,7 +20,7 @@ describe('REST room app', () => {
                 }]);
             });
     });
-
+    console.log('hey test');
 
     afterAll(() => {
         pool.end();
