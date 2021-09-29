@@ -1,9 +1,9 @@
-DROP TABLE IF EXISTS addresses;
+DROP TABLE IF EXISTS wheredata;
 
-CREATE TABLE addresses (
+CREATE TABLE wheredata (
     id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    address TEXT NOT NULL,
-    place TEXT NOT NULL,
+    street TEXT NOT NULL,
+    name TEXT NOT NULL,
     state TEXT NOT NULL,
     city TEXT NOT NULL
 );
