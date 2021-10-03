@@ -48,7 +48,7 @@ describe('REST room app', () => {
     });
 
     it('updates an item in the database by its id', async () => {
-        const entry = await Address.create(addressWhere);
+        const entry = await Address.insert(addressWhere);
         const updateEntry = {
             id: entry.id,
             street: entry.street,
