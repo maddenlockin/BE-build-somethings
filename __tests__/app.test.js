@@ -27,13 +27,23 @@ describe('REST room app', () => {
     });
 
     it('gets all the Address data from the database', async () => {
-        const address = await Address.insert(addressWhere);
+        const entry = await Address.insert(addressWhere);
 
         return request(app)
             .get('/api/v1/restrooms')
             .then((res) => {
                 //console.log(res);
-                expect(res.body).toEqual([address]);
+                expect(res.body).toEqual([entry]);
+            });
+    });
+
+    it('gets an item by id', async () => {
+        const entry = await Address.insert(addressWhere);
+
+        return request(app)
+            .get('/api/v1/restrooms/1')
+            .then((res) => {
+                expect(res.body).toEqual(entry);
             });
     });
 
