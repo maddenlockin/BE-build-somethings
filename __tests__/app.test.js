@@ -47,7 +47,7 @@ describe('REST room app', () => {
             });
     });
 
-    it('updates an item in the database by its id', async () => {
+    it('updates an item by its id', async () => {
         const entry = await Address.insert(addressWhere);
         const updateEntry = {
             id: entry.id,
@@ -61,6 +61,15 @@ describe('REST room app', () => {
             .send(updateEntry)
             .then((res) => {
                 expect(res.body).toEqual(updateEntry);
+            });
+    });
+
+    it('deletes an item by id', async () => {
+        const item = await Address.insert(addressWhere);
+
+        return request(app)
+            .delete(`/api/v1/restrooms/${item.id}`)
+            .then((res) => {expect(res.body).toEqual({});
             });
     });
 
