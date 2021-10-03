@@ -47,6 +47,23 @@ describe('REST room app', () => {
             });
     });
 
+    it('updates an item in the database by its id', async () => {
+        const entry = await Address.create(addressWhere);
+        const updateEntry = {
+            id: entry.id,
+            street: entry.street,
+            name: 'PDX airport',
+            state: entry.state,
+            city: entry.city
+        };
+        return request(app)
+            .patch(`/api/v1/restrooms/${entry.id}`)
+            .send(updateEntry)
+            .then((res) => {
+                expect(res.body).toEqual(updateEntry);
+            });
+    });
+
 
     afterAll(() => {
         pool.end();
