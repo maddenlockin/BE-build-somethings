@@ -17,6 +17,6 @@ CREATE TABLE access (
 
 CREATE TABLE directions (
     id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    directions TEXT NOT NULL,
-    address_name TEXT NOT NULL,
-)
+    direction TEXT NOT NULL,
+    address_name TEXT NOT NULL
+);
