@@ -7,3 +7,10 @@ CREATE TABLE Address (
     state TEXT NOT NULL,
     city TEXT NOT NULL
 );
+
+DROP TABLE IF EXISTS access;
+
+CREATE TABLE access (
+    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    accessible BOOL NOT NULL
+)
